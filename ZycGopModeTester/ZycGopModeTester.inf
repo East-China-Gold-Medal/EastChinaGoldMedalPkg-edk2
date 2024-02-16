@@ -1,0 +1,37 @@
+# @file
+#
+#  GOP resolution fix for zyc's ASUS ROG mainboard.
+#  This mainboard will set its resolution to 1024*768 when using DP displays.
+#  This module sets the resolution to maximum, then chainloads Windows Boot Manager.
+#
+#  SPDX-License-Identifier: WTFPL
+
+[Defines]
+  INF_VERSION                    = 0x0001000b
+  BASE_NAME                      = ZycGopModeTester
+  FILE_GUID                      = AA2D0A0F-FC39-40AC-AC3C-96F00E44D640
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  ZycGopModeTester.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  UefiBootServicesTableLib
+  DevicePathLib
+  BaseMemoryLib
+
+[Protocols]
+  gEfiGraphicsOutputProtocolGuid
+  gEfiLoadedImageProtocolGuid
+
+[Guids]
+  gEfiAcpi20TableGuid
+  gEfiAcpiTableGuid
