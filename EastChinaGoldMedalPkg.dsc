@@ -32,3 +32,4 @@
 
 [Components]
   EastChinaGoldMedalPkg/ZycGopModeTester/ZycGopModeTester.inf
+  EastChinaGoldMedalPkg/SlicTableLoader/SlicTableLoader.inf

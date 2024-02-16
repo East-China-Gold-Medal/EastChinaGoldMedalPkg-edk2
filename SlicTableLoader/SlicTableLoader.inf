@@ -1,0 +1,38 @@
+# @file
+#
+#  ASUS mainboard does not allow modified BIOS being flashed, making OEM loader failed to start.
+#  This module inserts SLIC table manually.
+#  For legal reasons, the SLIC table itself is not included. You need to generate it manually.
+#
+#  SPDX-License-Identifier: WTFPL
+
+[Defines]
+  INF_VERSION                    = 0x0001000b
+  BASE_NAME                      = SlicTableLoader
+  FILE_GUID                      = F682DA46-441D-45AF-BB16-A8FF123A3345
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  SlicTableLoader.c
+  #Generate this file manually.
+  GeneratedSlicTable.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  UefiBootServicesTableLib
+  DevicePathLib
+  BaseMemoryLib
+
+[Protocols]
+  gEfiLoadedImageProtocolGuid
+  gEfiAcpiTableProtocolGuid
+
+[Guids]
+
